@@ -53,39 +53,42 @@ function createMap(quakes){
         accessToken: API_KEY
       })
 
-      // dark map layer
-      const darkmap = L.tileLayer(mapboxLink,{
+    // dark map layer
+    const darkmap = L.tileLayer(mapboxLink,{
         attribution: attribution,
         maxZoom: 18,
         id: 'mapbox.dark',
         accessToken: API_KEY
-      })
+    })
 
-      // basemap layer
-      const baseMaps = {
-          'Satellite Map': satmap,
-          'Dark Map': darkmap
-      }
+    // basemap layer
+    const baseMaps = {
+        'Satellite Map': satmap,
+        'Dark Map': darkmap
+    }
 
-      // overlay layer
-      const mapOverlay = {
-          'Earthquakes': quakes
-      }
+    // overlay layer
+    const mapOverlay = {
+        'Earthquakes': quakes
+    }
+    
+    // load satmap and earthquakes initially
+    const myMap = L.map('map', {
+        center: [31.5,-100],
+        zoom: 4,
+        layers: [satmap,quakes]
+    })
+
+    L.control.layers(baseMaps, mapOverlay, {
+        collapsed: false
+    }).addTo(myMap)
+
+    // add legend
+    // const legend = L.control({position: 'bottomleft'})
+    // legend.onAdd = function(){
+    //     const div = L.DomUtil.create('div','info legend')
+    //     const colors= [0,1,2,3,4,5]
+    // }
       
-      // load satmap and earthquakes initially
-      const myMap = L.map('map', {
-          center: [31.5,-100],
-          zoom: 4,
-          layers: [satmap,quakes]
-      })
-
-      L.control.layers(baseMaps, mapOverlay, {
-          collapsed: false
-      }).addTo(myMap)
-
-      // add legend
-      // const legend = 
-      // legend.onAdd = function(){
-        // }
-        // lengend.addTo(myMap)
+    // lengend.addTo(myMap)
 }
