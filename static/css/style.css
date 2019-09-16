@@ -3,6 +3,13 @@ body {
   margin: 0;
 }
 
+.navbar-custom .navbar-brand:link,
+.navbar-custom .navbar-brand:visited,
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:active {
+  color: white;
+}
+
 #map,
 body,
 html {
@@ -12,9 +19,32 @@ html {
 nav {
   width:100%;
   background-color: black;
+  top:0;
 }
 
 footer {
+  background-color: black;
+  color: white;
+  font-size: 9pt; 
+  text-align: center; 
+  vertical-align: middle;
+  line-height: 45px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  background-color:black;
+
+}
+
+#leaflet-link:link,
+#leaflet-link:visited,
+#leaflet-link:hover,
+#leaflet-link:active {
+  color: white;
+}
+
+#gh-icon {
+  width: 20px;
+  height: 20px;
+  background-size: 100%;
 }

@@ -5,19 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Geomapping Earthquakes</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
   <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
 <body>
-  <nav>
-    <h1>USGS Record of Earthquakes from Past 30 Days</h1>
+  <nav class='navbar navbar-custom'>
+    <a class='navbar-brand' href='index.html'>Geomapping Earthquakes with Leaflet.js</a>
+    </div>
   </nav>
-  <div id="map"></div>
 
+  <div class='container-fluid'>
 
-  <footer></footer>
+    <div class='row'>
+      <div class='col text-center'>
+        <h4 id='plot-title'>Earthquakes (Past 30 Days)</h4>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col text-center'>
+        <div id='map'>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class='footer'>
+      Made with 🤍 and <a id='leaflet-link' href='https://leafletjs.com/reference-1.5.0.html' target='_blank' rel='noopener noreferrer'>Leaflet.js</a>&nbsp;&nbsp;|&nbsp;&nbsp;Kathleen Graham 2019&nbsp;&nbsp;
+      <a href='https://github.com/kathleengraham/geomapping-earthquakes-with-leaflet-js' target='_blank' rel='noopener noreferrer'><img id='gh-icon' src='static/images/gh-icon.png'></a>
+    </div>
+  </footer>
+
   <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script type="text/javascript" src="static/js/logic.js"></script>
   <script type="text/javascript" src="static/js/config.js"></script>
 </body>
