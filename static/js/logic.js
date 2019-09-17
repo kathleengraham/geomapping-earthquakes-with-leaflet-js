@@ -94,16 +94,6 @@ function createMap(quakes){
     // create legend
     const legend = L.control({position: 'bottomleft'})
 
-    // add color grade for legend
-    function getColor(d) {
-        return d > 5 ? '#4A1178' :
-               d > 4 ? '#952C7F' :
-               d > 3 ? '#D7496C' :
-               d > 2 ? '#FA8765' :
-               d > 1 ? '#FECC8F' :
-               '#FCF6B8'
-    }
-
     // add function to legend
     legend.onAdd = function(map){
         const div = L.DomUtil.create('div', 'info legend')
@@ -111,7 +101,7 @@ function createMap(quakes){
         const labels = []
         for (let i = 0; i < magnitudes.length; i++){
             div.innerHTML +=
-                '<i style="background:' + getColor(magnitudes[i] + 1) + '"></i> ' +
+                '<i style="background:' + markerColor(magnitudes[i] + 1) + '"></i> ' +
                 magnitudes[i] + (magnitudes[i + 1] ? '&ndash;' + magnitudes[i + 1] + '<br>' : '+')
         }
         return div
