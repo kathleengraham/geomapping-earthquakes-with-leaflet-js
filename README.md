@@ -1,20 +1,20 @@
 # Geomapping Earthquakes with Leaflet.js
 
-![default-screenshot-earthquake-visualization](assets/images/usgs-screenshot.jpg)
+![default-screenshot-earthquake-visualization](static/images/usgs-screenshot.jpg)
 
 I created an interactive visualization of earthquake data from the past 30 days using Leaflet!
 
 This visualization includes multiple layers that the user can switch between, such as satellite, light, and dark:
 
-![earthquake-map-layers](assets/images/layers.gif)
+![earthquake-map-layers](static/images/layers.gif)
 
 It also includes zoom functionalities:
 
-![earthquake-map-zoom](assets/images/zoom.gif)
+![earthquake-map-zoom](static/images/zoom.gif)
 
 And you can click on each earthquake record to see more detail, such as the specific place, magnitude, date, and time:
 
-![earthquake-map-popups](assets/images/popups.gif)
+![earthquake-map-popups](static/images/popups.gif)
 
 
 ### Set Up
