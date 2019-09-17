@@ -16,24 +16,18 @@ body,
 .navbar-custom .navbar-brand:visited,
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:active {
-  color: #2E3917;
+  color: black;
 }
 
 .navbar-custom {
   width:100%;
   background-color: white;
-  color: #2E3917;
   top:0;
-}
-
-h4 {
-  color: #2E3917;
 }
 
 .info {
   padding: 6px 8px;
   font: 14px;
-  background-color: ;
   border-radius: 5px;
 }
 
@@ -54,7 +48,7 @@ h4 {
 
 footer {
   background-color: white;
-  color: #2E3917;
+  color: black;
   font-size: 9pt; 
   text-align: center; 
   vertical-align: middle;
@@ -70,7 +64,7 @@ footer {
 #leaflet-link:visited,
 #leaflet-link:hover,
 #leaflet-link:active {
-  color: #2E3917;
+  color: black;
 }
 
 #gh-icon {

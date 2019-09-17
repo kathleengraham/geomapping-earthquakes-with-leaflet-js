@@ -7,13 +7,13 @@ function markerSize(magnitude) {
 }
 
 // set markerColor based on magnitude of earthquake
-function markerColor(m) {
-    return m > 5 ? '#7a0177' :
-        m > 4 ? '#E31A1C' :
-        m > 3 ? '#FD8D3C' :
-        m > 2 ? 'lightgreen' :
-        m > 1 ? 'skyblue' :
-        'yellow'
+function markerColor(d) {
+    return d > 5 ? '#4A1178' :
+        d > 4 ? '#952C7F' :
+        d > 3 ? '#D7496C' :
+        d > 2 ? '#FA8765' :
+        d > 1 ? '#FECC8F' :
+        '#FCF6B8'
 }
 
 // get request to query url
@@ -96,12 +96,12 @@ function createMap(quakes){
 
     // add color grade for legend
     function getColor(d) {
-        return d > 5 ? '#7a0177' :
-               d > 4 ? '#E31A1C' :
-               d > 3 ? '#FD8D3C' :
-               d > 2 ? 'lightgreen' :
-               d > 1 ? 'skyblue' :
-               'yellow'
+        return d > 5 ? '#4A1178' :
+               d > 4 ? '#952C7F' :
+               d > 3 ? '#D7496C' :
+               d > 2 ? '#FA8765' :
+               d > 1 ? '#FECC8F' :
+               '#FCF6B8'
     }
 
     // add function to legend
