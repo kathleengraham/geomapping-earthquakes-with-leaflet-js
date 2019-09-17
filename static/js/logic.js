@@ -53,6 +53,14 @@ function createMap(quakes){
         accessToken: API_KEY
       })
 
+    // light map layer
+    const lightmap = L.tileLayer(mapboxLink,{
+        attribution: attribution,
+        maxZoom: 18,
+        id: 'mapbox.light',
+        accessToken: API_KEY
+    })
+
     // dark map layer
     const darkmap = L.tileLayer(mapboxLink,{
         attribution: attribution,
@@ -64,6 +72,7 @@ function createMap(quakes){
     // basemap layer
     const baseMaps = {
         'Satellite Map': satmap,
+        'Light Map': lightmap,
         'Dark Map': darkmap
     }
 
@@ -84,11 +93,14 @@ function createMap(quakes){
     }).addTo(myMap)
 
     // add legend
-    // const legend = L.control({position: 'bottomleft'})
-    // legend.onAdd = function(){
-    //     const div = L.DomUtil.create('div','info legend')
-    //     const colors= [0,1,2,3,4,5]
-    // }
+    const legend = L.control({position: 'bottomleft'})
+    legend.onAdd = function () {
+  
+        const div = L.DomUtil.create('div', 'info legend')
+        const magnitudes = [0, 1, 2, 3, 4, 5]
+    
+        return div
+    }
       
-    // lengend.addTo(myMap)
+    legend.addTo(myMap)
 }

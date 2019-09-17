@@ -1,7 +1,14 @@
 html,
 body,
-#map {
+.container-fluid {
   height: 100%;
+  width: 100%;
+}
+
+#map {
+  position: relative;
+  height: 90%;
+  width: 100%;
 }
 
 .navbar-custom .navbar-brand:link,
