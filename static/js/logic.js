@@ -7,18 +7,13 @@ function markerSize(magnitude) {
 }
 
 // set markerColor based on magnitude of earthquake
-function markerColor(magnitude) {
-    if (magnitude <=1) {
-        return 'yellow'
-    } else if (magnitude <=2) {
-        return 'lightgreen'
-    } else if (magnitude <=3) {
-        return 'pink'
-    } else if (magnitude <=4) {
-        return 'orange'
-    } else {
-        return 'red'
-    }
+function markerColor(m) {
+    return m > 5 ? '#7a0177' :
+        m > 4 ? '#E31A1C' :
+        m > 3 ? '#FD8D3C' :
+        m > 2 ? 'lightgreen' :
+        m > 1 ? 'skyblue' :
+        'yellow'
 }
 
 // get request to query url
@@ -42,10 +37,13 @@ function addFeatures(quakeData) {
     createMap(quakes)
 }
 
-// create the map function with multiple laters
+// create the map function with multiple layers
 function createMap(quakes){
+
+    // link to maps with api in config.js
     const mapboxLink = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'
-    // satellite map layer
+    
+    // create satellite map layer
     const satmap = L.tileLayer(mapboxLink,{
         attribution: attribution,
         maxZoom: 18,
@@ -53,7 +51,7 @@ function createMap(quakes){
         accessToken: API_KEY
       })
 
-    // light map layer
+    // create light map layer
     const lightmap = L.tileLayer(mapboxLink,{
         attribution: attribution,
         maxZoom: 18,
@@ -61,7 +59,7 @@ function createMap(quakes){
         accessToken: API_KEY
     })
 
-    // dark map layer
+    // create dark map layer
     const darkmap = L.tileLayer(mapboxLink,{
         attribution: attribution,
         maxZoom: 18,
@@ -69,38 +67,56 @@ function createMap(quakes){
         accessToken: API_KEY
     })
 
-    // basemap layer
+    // create basemap layer with the other maps
     const baseMaps = {
         'Satellite Map': satmap,
         'Light Map': lightmap,
         'Dark Map': darkmap
     }
 
-    // overlay layer
+    // create overlay layer
     const mapOverlay = {
         'Earthquakes': quakes
     }
     
-    // load satmap and earthquakes initially
+    // load satmap and earthquakes as default
     const myMap = L.map('map', {
         center: [31.5,-100],
         zoom: 4,
         layers: [satmap,quakes]
     })
 
+    // add all map layers
     L.control.layers(baseMaps, mapOverlay, {
         collapsed: false
     }).addTo(myMap)
 
-    // add legend
+    // create legend
     const legend = L.control({position: 'bottomleft'})
-    legend.onAdd = function () {
-  
+
+    // add color grade for legend
+    function getColor(d) {
+        return d > 5 ? '#7a0177' :
+               d > 4 ? '#E31A1C' :
+               d > 3 ? '#FD8D3C' :
+               d > 2 ? 'lightgreen' :
+               d > 1 ? 'skyblue' :
+               'yellow'
+    }
+
+    // add function to legend
+    legend.onAdd = function(map){
         const div = L.DomUtil.create('div', 'info legend')
         const magnitudes = [0, 1, 2, 3, 4, 5]
-    
+        const labels = []
+        for (let i = 0; i < magnitudes.length; i++){
+            div.innerHTML +=
+                '<i style="background:' + getColor(magnitudes[i] + 1) + '"></i> ' +
+                magnitudes[i] + (magnitudes[i + 1] ? '&ndash;' + magnitudes[i + 1] + '<br>' : '+')
+        }
         return div
     }
       
+    // add legend to map
     legend.addTo(myMap)
 }

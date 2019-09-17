@@ -3,11 +3,12 @@ body,
 .container-fluid {
   height: 100%;
   width: 100%;
+  position: fixed;
 }
 
 #map {
   position: relative;
-  height: 90%;
+  height: 85%;
   width: 100%;
 }
 
@@ -18,7 +19,7 @@ body,
   color: #2E3917;
 }
 
-nav {
+.navbar-custom {
   width:100%;
   background-color: white;
   color: #2E3917;
@@ -27,6 +28,28 @@ nav {
 
 h4 {
   color: #2E3917;
+}
+
+.info {
+  padding: 6px 8px;
+  font: 14px;
+  background-color: ;
+  border-radius: 5px;
+}
+
+.legend {
+  background-color: white;
+  line-height: 25px;
+  color: black;
+  width: auto;
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.9;
 }
 
 footer {
